@@ -19,6 +19,7 @@
 		472FA8DA18CF721100C2BE5A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472FA8C218CF721100C2BE5A /* UIKit.framework */; };
 		472FA8E218CF721100C2BE5A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 472FA8E018CF721100C2BE5A /* InfoPlist.strings */; };
 		472FA8E418CF721100C2BE5A /* CBRegularExpressionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 472FA8E318CF721100C2BE5A /* CBRegularExpressionTests.m */; };
+		472FA8EF18CF723600C2BE5A /* CBRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 472FA8EE18CF723600C2BE5A /* CBRegularExpression.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		472FA8DF18CF721100C2BE5A /* CBRegularExpressionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CBRegularExpressionTests-Info.plist"; sourceTree = "<group>"; };
 		472FA8E118CF721100C2BE5A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		472FA8E318CF721100C2BE5A /* CBRegularExpressionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBRegularExpressionTests.m; sourceTree = "<group>"; };
+		472FA8ED18CF723600C2BE5A /* CBRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRegularExpression.h; sourceTree = "<group>"; };
+		472FA8EE18CF723600C2BE5A /* CBRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRegularExpression.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				472FA8CE18CF721100C2BE5A /* CBAppDelegate.m */,
 				472FA8D018CF721100C2BE5A /* Images.xcassets */,
 				472FA8C518CF721100C2BE5A /* Supporting Files */,
+				472FA8ED18CF723600C2BE5A /* CBRegularExpression.h */,
+				472FA8EE18CF723600C2BE5A /* CBRegularExpression.m */,
 			);
 			path = CBRegularExpression;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				472FA8EF18CF723600C2BE5A /* CBRegularExpression.m in Sources */,
 				472FA8CB18CF721100C2BE5A /* main.m in Sources */,
 				472FA8CF18CF721100C2BE5A /* CBAppDelegate.m in Sources */,
 			);

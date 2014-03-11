@@ -7,8 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
-
-@interface CBRegularExpressionTests : XCTestCase
+#import "CBRegularExpression.h"
+@interface CBRegularExpressionTests : XCTestCase {
+    CBRegularExpression *re;
+}
 
 @end
 
@@ -17,6 +19,7 @@
 - (void)setUp
 {
     [super setUp];
+    re = [CBRegularExpression regularExpressionWithPattern:@"([a-z]+)([0-9]+)"];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -24,11 +27,25 @@
 {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+    re = nil;
 }
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSArray *group;
+    BOOL match = [re match:@"123abc456def" group:&group];
+    NSLog(@"Group:  %@",group);
+    NSArray *group2;
+    BOOL search = [re search:@"123abc456" group:&group2];
+    NSLog(@"Search: %@", group2);
+    NSArray *group3;
+    BOOL match2 = [re match:@"abcde" group:&group3];
+    NSLog(@"Group2: %@", group3);
+    XCTAssertTrue(match, @"Match1 is false");
+    XCTAssertTrue(search, @"Search is false");
+    XCTAssertTrue(match2, @"Match2 is false");
+    
+    //XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end
