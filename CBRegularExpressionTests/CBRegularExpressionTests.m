@@ -19,7 +19,7 @@
 - (void)setUp
 {
     [super setUp];
-    re = [CBRegularExpression regularExpressionWithPattern:@"([a-z]+)([0-9]+)"];
+    re = [CBRegularExpression regularExpressionWithPattern:@"([0-9]+)"];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -33,13 +33,13 @@
 - (void)testExample
 {
     NSArray *group;
-    BOOL match = [re match:@"123abc456def" group:&group];
+    BOOL match = [re match:@"abc456" group:&group];
     NSLog(@"Group:  %@",group);
     NSArray *group2;
     BOOL search = [re search:@"123abc456" group:&group2];
     NSLog(@"Search: %@", group2);
     NSArray *group3;
-    BOOL match2 = [re match:@"abcde" group:&group3];
+    BOOL match2 = [re match:@"12345" group:&group3];
     NSLog(@"Group2: %@", group3);
     XCTAssertTrue(match, @"Match1 is false");
     XCTAssertTrue(search, @"Search is false");

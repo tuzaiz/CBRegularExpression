@@ -19,14 +19,32 @@
 - (BOOL)match:(NSString *)string group:(NSArray *__autoreleasing *)group
 {
     NSArray *matches = [self matchesInString:string options:0 range:NSMakeRange(0, string.length)];
-    *group = matches;
-    return matches.count > 0;
+
+    NSTextCheckingResult *result = [matches firstObject];
+    
+    if ((result.range.location == 0 && result.range.length == string.length)) {
+        NSMutableArray *allGroups = [NSMutableArray array];
+        for (NSInteger i = 0; i < [result numberOfRanges]; i++) {
+            [allGroups addObject:[string substringWithRange:[result rangeAtIndex:i]]];
+        }
+        *group = [NSArray arrayWithArray:allGroups];
+        return YES;
+    } else {
+        return NO;
+    }
+    
 }
 
 - (BOOL)search:(NSString *)string group:(NSArray *__autoreleasing *)group
 {
     NSArray *matches = [self matchesInString:string options:0 range:NSMakeRange(0, string.length)];
-    *group = matches;
+    NSMutableArray *groups = [NSMutableArray array];
+    for (NSTextCheckingResult *result in matches) {
+        for (NSInteger i = 1; i < [result numberOfRanges]; i++) {
+            [groups addObject:[string substringWithRange:[result rangeAtIndex:i]]];
+        }
+    }
+    *group = [NSArray arrayWithArray:groups];
     return matches.count > 0;
 }
 @end
